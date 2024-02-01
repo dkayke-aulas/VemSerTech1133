@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aula 01 - Contador React</title>
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/@babel/standalone/babel.min.js"
+    ></script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        function Pessoa(props) {
+            const { nome, idade, corDoOlho } = props
+
+            const frutas = ['banana', 'pitanga', 'acerola', 'caqui', 'fruta do conde']
+
+            const [frutaFavorita, ...outrasFrutas] = frutas
+        
+            const estilo = {
+                color: 'crimson',
+                backgroundColor: 'black',
+                padding: '2rem',
+                borderRadius: '1rem'
+            }
+
+            return (
+                <div style={estilo}>
+                    <p>{nome}</p>
+                    <p>{idade}</p>
+                    <p>{corDoOlho}</p>
+                    <p>{frutaFavorita}</p>
+                    <p>{outrasFrutas.toString()}</p>
+                </div>
+            )
+        }
+
+      function Button(props) {
+        return <button>{props.children}</button>;
+      }
+
+      function App() {
+        return (
+          <>
+            <div>Olá mundo das bananas!</div>
+            <Button children="é uma fruta" />
+            <Button>
+                <p>bananana</p>    
+                <p>é uma fruta</p>    
+            </Button>
+            <Button titulo="este é o título" />
+    
+            <Pessoa nome="Dannyel" idade={35} corDoOlho='azul esverdeado' />
+          </>
+        );
+      }
+
+      const container = document.getElementById("root");
+      const root = ReactDOM.createRoot(container);
+      root.render(<App />);
+    </script>
+  </body>
+</html>
