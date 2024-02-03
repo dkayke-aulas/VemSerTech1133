@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aula 02 - Estados</title>
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/@babel/standalone/babel.min.js"
+    ></script>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      function List(props) {
+        const { items } = props;
+
+        // const newItems = [
+        //     false,
+        //     <li>{items[0]}</li>,
+        //     <li>{items[1]}</li>,
+        //     <p>melancia</p>,
+        //     <li>{items[2]}</li>,
+        //     'oi'
+        // ]
+
+        return (
+          <ul>
+            {/*newItems*/}
+            {items.map((itemDaLista, index) => {
+              return <li key={index}>{itemDaLista}</li>;
+            })}
+          </ul>
+        );
+      }
+
+      function Input(props) {
+        const { onEnter } = props;
+        const [value, setValue] = React.useState("");
+
+        function handleOnKeyUp({ code }) {
+          if (code === "Enter") {
+            onEnter(value);
+          }
+        }
+
+        return (
+          <>
+            <label htmlFor="id-btn"></label>
+            <input
+              id="id-btn"
+              type="text"
+              value={value}
+              onInput={(event) => setValue(event.target.value)}
+              onKeyUp={handleOnKeyUp}
+            />
+          </>
+        );
+      }
+
+      function App() {
+        const [listItems, setListItems] = React.useState([
+          "banana",
+          "fruta do conde",
+          "banana",
+        ]);
+
+        const handleOnEnter = (item) => {
+          const newListItems = [...listItems, item];
+          setListItems(newListItems);
+        }
+
+        return (
+          <>
+            <h1>Aula 2</h1>
+            <Input onEnter={handleOnEnter} />
+            <List items={listItems} />
+          </>
+        );
+      }
+
+      const rootDiv = document.getElementById("root");
+      const rootElement = ReactDOM.createRoot(rootDiv);
+      rootElement.render(<App />);
+    </script>
+  </body>
+</html>

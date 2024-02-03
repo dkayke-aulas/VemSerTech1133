@@ -25,6 +25,12 @@
         function Pessoa(props) {
             const { nome, idade, corDoOlho } = props
 
+            // const frutaFavorita = props.frutaFavorita
+            // const nome = props.nome
+            // const idade = props.idade
+            // const corDoOlho = props.corDoOlho
+
+
             const frutas = ['banana', 'pitanga', 'acerola', 'caqui', 'fruta do conde']
 
             const [frutaFavorita, ...outrasFrutas] = frutas
@@ -62,7 +68,7 @@
             </Button>
             <Button titulo="este é o título" />
     
-            <Pessoa nome="Dannyel" idade={35} corDoOlho='azul esverdeado' />
+            <Pessoa nome="Dannyel" idade={35} corDoOlho='azul esverdeado' frutaFavorita="banana" />
           </>
         );
       }
