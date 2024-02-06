@@ -1,0 +1,23 @@
+{
+  "name": "banana-app",
+  "version": "1.0.0",
+  "description": "Projeto da aula 3 de React",
+  "scripts": {
+    "start": "esbuild src/app.jsx --bundle --outfile=public/app-convertido.js --servedir=./ --watch",
+    "build": "esbuild src/app.jsx --bundle --outfile=public/app-convertido.js"
+  },
+  "keywords": [
+    "react",
+    "banana",
+    "aula-03"
+  ],
+  "author": "Dannyel Kayke",
+  "license": "MIT",
+  "devDependencies": {
+    "esbuild": "0.20.0"
+  },
+  "dependencies": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  }
+}
