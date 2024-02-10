@@ -21,8 +21,8 @@ function App() {
     <>
       {exibir && <p>Está exibindo o texto!</p>}
       <button onClick={mostrarMensagem}>Exibir texto</button>
-      {/* <Button>Clique-me</Button>
-      <ButtonBoolean>Clique-me</ButtonBoolean> */}
+      <Button>Clique-me</Button>
+      <ButtonBoolean>Clique-me</ButtonBoolean>
     </>
   );
 }

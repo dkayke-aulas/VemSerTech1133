@@ -1,0 +1,20 @@
+.container-filme {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  border: 8px solid navy;
+  width: 400px;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.container-filme img {
+  object-fit: contain;
+  height: 250px;
+}
+
+.container-filme button {
+  height: 40px;
+  width: 100%;
+}
