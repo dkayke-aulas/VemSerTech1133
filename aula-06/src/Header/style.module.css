@@ -1,0 +1,8 @@
+.titulo {
+  color: crimson;
+  text-shadow: 1px 1px greenyellow;
+}
+
+:global .active {
+  color: deeppink;
+}

@@ -1,0 +1,19 @@
+.texto {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1rem;
+}
+
+.titulo {
+    composes: texto;
+    color: peru;
+    text-shadow: 1px 1px greenyellow;
+}
+
+:global .banana {
+    color: red;
+}
+
+.textoComum {
+    composes: texto;
+    color: blueviolet;
+}
