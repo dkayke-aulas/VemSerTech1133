@@ -1,0 +1,15 @@
+.header {
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+	align-items: center;
+    padding: 10px;
+    background-color: blueviolet;
+    color:oldlace;
+}
+
+
+.header div {
+    display: flex;
+    gap: 10px;
+}
