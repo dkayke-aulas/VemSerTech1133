@@ -1,0 +1,17 @@
+.inputPasswordContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.iconPasswordContainer {
+    position: absolute;
+    right: 10px;
+    font-size: 12px;
+    top: 4.5px;
+}
