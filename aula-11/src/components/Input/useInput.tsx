@@ -17,7 +17,7 @@ const useInput = ({onInput}: UseInputProps) => {
     setEyeOpen((state) => !state);
   };
 
-  const getInputType = () => eyeOpen ? "password" : "text"
+  const getInputType = () => !eyeOpen ? "password" : "text"
 
   return {
     eyeOpen,

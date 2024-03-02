@@ -1,0 +1,27 @@
+.loginContainer {
+    height: 100vh;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    flex-direction: column;
+    
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 16px;
+    border: 2px solid crimson;
+    border-radius: 0.25rem;
+    padding: 1rem;
+}
+
+.loginFormLogo {
+    font-size: 3rem;
+    color: crimson;
+    margin: 0 auto;
+}

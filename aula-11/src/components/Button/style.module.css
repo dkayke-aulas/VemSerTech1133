@@ -1,0 +1,25 @@
+.button {
+  height: 2rem;
+  background-color: crimson;
+  color: aliceblue;
+  border: none;
+  border-radius: 0.25rem;
+}
+
+.button:hover {
+  cursor: pointer;
+  background-color: #fc3a5f;
+}
+
+.buttonLink {
+  height: 2rem;
+  width: fit-content;
+  padding: 0.5rem;
+  background-color: transparent;
+  color: crimson;
+  text-decoration: none;
+}
+
+.buttonLink:hover {
+  color: black;
+}

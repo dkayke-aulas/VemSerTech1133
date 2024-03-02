@@ -17,11 +17,8 @@ interface InputProps {
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Input: FC<Partial<InputProps>> = ({
-  type = "text",
-  onChange,
-  onInput,
-}) => {
+const Input: FC<Partial<InputProps>> = (props) => {
+  const { type = "text", onChange, onInput, ...restProps } = props;
   const { eyeOpen, handleOnClickEye, handleOnInput, getInputType } = useInput({
     onInput,
   });
@@ -29,7 +26,7 @@ const Input: FC<Partial<InputProps>> = ({
   if (type === "password") {
     return (
       <div className={S.inputPasswordContainer}>
-        <input className={S.input} type={getInputType()} />
+        <input {...restProps} className={S.input} type={getInputType()} />
         {eyeOpen ? (
           <EyeFill
             className={S.iconPasswordContainer}
@@ -47,6 +44,7 @@ const Input: FC<Partial<InputProps>> = ({
 
   return (
     <input
+      {...restProps}
       className={S.input}
       type={type}
       onChange={onChange}
