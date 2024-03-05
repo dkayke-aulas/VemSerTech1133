@@ -26,7 +26,13 @@ const Input: FC<Partial<InputProps>> = (props) => {
   if (type === "password") {
     return (
       <div className={S.inputPasswordContainer}>
-        <input {...restProps} className={S.input} type={getInputType()} />
+        <input
+          {...restProps}
+          className={S.input}
+          type={getInputType()}
+          onChange={onChange}
+          onInput={handleOnInput}
+        />
         {eyeOpen ? (
           <EyeFill
             className={S.iconPasswordContainer}

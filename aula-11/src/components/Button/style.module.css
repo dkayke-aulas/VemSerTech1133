@@ -23,3 +23,7 @@
 .buttonLink:hover {
   color: black;
 }
+
+.button:disabled {
+  background-color: silver;
+}

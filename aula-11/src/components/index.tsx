@@ -1,7 +1,6 @@
-import { Input } from "./Input";
-import { Label } from "./Label";
-import { Table } from "./Table";
-import { Button } from "./Button";
-import { Title } from "./Title";
-
-export { Input, Label, Table, Button, Title };
+export { Input } from "./Input";
+export { Label } from "./Label";
+export { Button } from "./Button";
+export { Table } from "./Table";
+export { Title } from "./Title";
+export { Feedback } from "./Feedback";
