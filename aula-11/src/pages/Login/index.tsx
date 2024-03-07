@@ -2,6 +2,7 @@ import { FC } from "react";
 import { Button, Input, Title } from "../../components";
 import S from './style.module.css'
 import { Heart } from 'react-bootstrap-icons'
+import { PATHS } from "../../routes/paths";
 
 const Login: FC = () => {
   return (
@@ -12,7 +13,7 @@ const Login: FC = () => {
             <Input type="text"/>
             <Input type="password" />
             <Button>Entrar</Button>
-            <p>Não possui conta?<Button type="link" path="/cadastro">Cadastre-se!</Button></p>
+            <p>Não possui conta?<Button type="link" path={PATHS.signUp}>Cadastre-se!</Button></p>
         </form>
     </div>
   );

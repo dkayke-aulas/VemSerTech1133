@@ -8,14 +8,18 @@ interface ButtonProps {
   type?: TypeButton;
   path?: string;
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
-  disabled?: boolean
+  disabled?: boolean;
 }
 
 const Button: FC<ButtonProps> = (props) => {
-  const { children, disabled, type, path = '/', onClick } = props;
+  const { children, disabled, type, path = "/", onClick } = props;
 
   if (type === TypeButtonEnum.LINK) {
-    return <Link className={S.buttonLink} to={path}>{children}</Link>
+    return (
+      <Link className={S.buttonLink} to={path}>
+        {children}
+      </Link>
+    );
   }
 
   return (

@@ -4,12 +4,13 @@ import { Heart } from "react-bootstrap-icons";
 import { Title } from "../../components/Title";
 import { useSignUp } from "./useSignUp";
 import S from "./style.module.css";
+import { PATHS } from "../../routes/paths";
 
 const SignUp: FC = () => {
-  const { 
+  const {
     handleOnSubmit,
     feedback,
-    loading,
+    isLoading,
     inputPassword,
     setInputPassword,
     inputPasswordConfirm,
@@ -17,21 +18,34 @@ const SignUp: FC = () => {
     passwordValidations,
     passwordConfirmValidations,
     handleOnChange,
-    isFormValid
-  } =
-    useSignUp();
-
-  
+    isFormValid,
+  } = useSignUp();
 
   return (
     <div className={S.loginContainer}>
       <Title>Cadastre-se</Title>
-      <form className={S.loginForm} onSubmit={handleOnSubmit} onChange={handleOnChange} >
+      <form
+        className={S.loginForm}
+        onSubmit={handleOnSubmit}
+        onChange={handleOnChange}
+      >
         <Heart className={S.loginFormLogo} />
-        <Input type="text" name="name" placeholder="Nome" required data-required />
-        <Input type="text" name="username" placeholder="Usuário" />
+        <Input
+          type="text"
+          name="name"
+          placeholder="Nome"
+          required
+          data-required
+        />
+        <Input type="text" name="nickname" placeholder="Nickname" required />
         <Input type="text" name="role" placeholder="Profissão" />
-        <Input type="text" name="email" placeholder="E-mail"  required data-required />
+        <Input
+          type="text"
+          name="email"
+          placeholder="E-mail"
+          required
+          data-required
+        />
 
         <Feedback validations={passwordValidations}>
           <Input
@@ -56,13 +70,13 @@ const SignUp: FC = () => {
             data-required
           />
         </Feedback>
-        <Button>Cadastrar</Button>
+        <Button disabled={!isFormValid || isLoading}>Cadastrar</Button>
         <span>
-          {loading && "Aguarde..."} {feedback && feedback}
+          {isLoading && "Aguarde..."} {feedback && feedback}
         </span>
         <p>
           Possui conta?
-          <Button type="link" path="/" disabled>
+          <Button type="link" path={PATHS.login}>
             Entre aqui!
           </Button>
         </p>

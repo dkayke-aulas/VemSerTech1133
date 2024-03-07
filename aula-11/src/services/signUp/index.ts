@@ -5,10 +5,16 @@ export const signUpService = (user: User): Promise<string> => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             const users: User[] = JSON.parse(localStorage.getItem('@users') ?? '[]')
-            const exist = users.some((_user) => _user.email === user.email)
+            const emailExist = users.some((_user) => _user.email === user.email)
             
-            if(exist) {
-                return reject('Usuário já cadastrado!')
+            if(emailExist) {
+                return reject('E-mail já cadastrado!')
+            }
+
+            const nicknameExist = users.some((_user) => _user.nickname === user.nickname)
+            
+            if(nicknameExist) {
+                return reject('Nome de usuário já cadastrado!')
             }
             
             users.push(user)
