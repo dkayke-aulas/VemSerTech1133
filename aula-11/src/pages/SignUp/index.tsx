@@ -32,13 +32,11 @@ const SignUp: FC = () => {
         <Heart className={S.loginFormLogo} />
         <Input
           type="text"
-          name="name"
+          name="nome"
           placeholder="Nome"
           required
           data-required
         />
-        <Input type="text" name="nickname" placeholder="Nickname" required />
-        <Input type="text" name="role" placeholder="Profissão" />
         <Input
           type="text"
           name="email"
@@ -50,7 +48,7 @@ const SignUp: FC = () => {
         <Feedback validations={passwordValidations}>
           <Input
             type="password"
-            name="password"
+            name="senha"
             placeholder="Senha"
             value={inputPassword}
             onInput={setInputPassword}
@@ -62,7 +60,7 @@ const SignUp: FC = () => {
         <Feedback validations={passwordConfirmValidations}>
           <Input
             type="password"
-            name="confirmPassword"
+            name="confirmacaoSenha"
             placeholder="Confirme sua senha"
             value={inputPasswordConfirm}
             onInput={setInputPasswordConfirm}
@@ -70,6 +68,7 @@ const SignUp: FC = () => {
             data-required
           />
         </Feedback>
+        <input type="file" name="foto" accept=".jpg,.jpeg,.png,.gif" />
         <Button disabled={!isFormValid || isLoading}>Cadastrar</Button>
         <span>
           {isLoading && "Aguarde..."} {feedback && feedback}

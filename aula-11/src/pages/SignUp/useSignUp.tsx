@@ -48,7 +48,6 @@ const useSignUp = () => {
     const isInputConfirmPasswordValid = passwordConfirmValidations.every(
       (validation) => validation.isValid
     );
-    // console.log(isInputPasswordValid, isInputConfirmPasswordValid)
     return isInputPasswordValid && isInputConfirmPasswordValid;
   }, [passwordConfirmValidations, passwordValidations]);
 
@@ -65,16 +64,6 @@ const useSignUp = () => {
     setIsAllInputWithMinValue(allInputIsValid);
   };
 
-  const getPasswords = (fd: FormData) => {
-    const password = fd.get("password");
-    fd.delete("password");
-
-    const confirmPassword = fd.get("confirmPassword");
-    fd.delete("confirmPassword");
-
-    return { password, confirmPassword };
-  };
-
   const handleOnSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsLoading(false);
@@ -82,7 +71,8 @@ const useSignUp = () => {
     clearTimeout(refIdTimeout.current);
 
     const fd = new FormData(event.currentTarget);
-    getPasswords(fd);
+    fd.delete('confirmacaoSenha')
+    fd.delete('foto')
 
     const user: UserFD = {};
     for (const [chave, valor] of fd) {
@@ -92,12 +82,18 @@ const useSignUp = () => {
     try {
       setIsLoading(true);
       const response = await signUpService(user as User);
-      setFeedback(response);
-      refIdTimeout.current = setTimeout(() => {
-        navigate(PATHS.login);
-      }, 10000);
+      if(response.status === 200) {
+        console.log(response.data);
+        refIdTimeout.current = setTimeout(() => {
+          navigate(PATHS.login);
+        }, 10000);
+      }
+      else if(response.status === 409) {
+        setFeedback(response.mensagem);
+      }
     } catch (erro) {
-      setFeedback(erro as string);
+
+      setFeedback('Erro: Tente novamente mais tarde :(');
     } finally {
       setIsLoading(false);
       setTimeout(() => setFeedback(""), 3000);

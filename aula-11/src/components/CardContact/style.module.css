@@ -1,11 +1,51 @@
 .cardButton {
-    width: 100%;
-    height: 100px;
-    background-color: transparent;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100px;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0px 0px 1px 0px #454545;
+  border: 1px solid crimson;
+}
+
+.cardButton h2 {
+  font-size: 1rem;
+}
+
+.cardButton p {
+  font-size: 0.75rem;
+}
+
+.cardButton + .cardButton {
+  margin-top: 1rem;
 }
 
 .cardButton:hover {
-    border: none;
-    box-shadow: 0px 0px 3px 0px #454545;
+  border: none;
+  box-shadow: 0px 0px 3px 0px #454545;
+}
+
+.photoContainer {
+    border: 1px solid crimson;
+    border-radius: 50%;
+    height: 5rem;
+    width: 5rem;
+    overflow: hidden;
+}
+
+.photoContainer img {
+    height: 5rem;
+    object-fit: contain;
+}
+
+.dataContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+  text-align: left;
 }

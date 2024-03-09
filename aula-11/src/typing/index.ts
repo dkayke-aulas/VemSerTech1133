@@ -1,6 +1,12 @@
 export type User = {
     name: string
-    nickname: string
     email: string
-    role: string
+    password?: string
+    photo?: string
+    token?: string
+}
+
+export type Login = {
+    email: string
+    senha: string
 }
