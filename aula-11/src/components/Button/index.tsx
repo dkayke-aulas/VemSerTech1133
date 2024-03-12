@@ -7,7 +7,7 @@ interface ButtonProps {
   children: ReactNode;
   type?: TypeButton;
   path?: string;
-  onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
+  onClick?: (event?: MouseEvent<HTMLButtonElement>) => void;
   disabled?: boolean;
 }
 
@@ -16,7 +16,13 @@ const Button: FC<ButtonProps> = (props) => {
 
   if (type === TypeButtonEnum.LINK) {
     return (
-      <Link className={S.buttonLink} to={path}>
+      <Link
+        className={S.buttonLink}
+        to={path}
+        onClick={() => {
+          onClick && onClick();
+        }}
+      >
         {children}
       </Link>
     );

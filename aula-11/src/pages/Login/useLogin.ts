@@ -1,9 +1,13 @@
-import { FormEvent, useRef, useState } from "react";
-import { loginService } from "../../services/login";
+import { FormEvent, useEffect, useRef, useState } from "react";
+import { useLoginService } from "../../services/login";
 import { Login } from "../../typing";
 import { ErrorResponse } from "../../services/login/types/response";
+import { PATHS } from "../../routes/paths";
+import { useNavigate } from "react-router-dom";
 
 const useLogin = () => {
+  const navigate = useNavigate()
+  const { loginService } = useLoginService();
   const [feedback, setFeedback] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const refIdTimeout = useRef(0);
@@ -21,14 +25,20 @@ const useLogin = () => {
         senha: fd.get("senha") as string,
       };
       const response = await loginService(login);
-      console.log(response.data);
+      const { token } = response.data
+      window.sessionStorage.setItem('@token', token)
+      navigate(PATHS.contacts)
     } catch (erro) {
       setFeedback((erro as ErrorResponse).mensagem);
     } finally {
       setIsLoading(false);
-      setTimeout(() => setFeedback(""), 3000);
+      refIdTimeout.current = setTimeout(() => setFeedback(""), 3000);
     }
   };
+
+  useEffect(() => {
+    return () => clearInterval(refIdTimeout.current);
+  }, []);
 
   return {
     feedback,

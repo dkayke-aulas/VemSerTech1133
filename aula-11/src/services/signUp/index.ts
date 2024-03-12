@@ -1,19 +1,21 @@
 import { User } from "../../typing";
+import { useService } from "../../utils/useService";
 import { ErrorResponse, UserResponseSuccess } from "./types/response";
 
-const headers = new Headers();
-headers.append("Content-Type", "application/json");
+const useSignUpService = () => {
+  const { post } = useService();
 
-export const signUpService = async (
-  user: User
-): Promise<UserResponseSuccess & ErrorResponse> => {
-  const response = await fetch("http://localhost:5000/v1/user", {
-    body: JSON.stringify(user),
-    method: "POST",
-    headers,
-  });
-  return await response.json()
+  const signUpService = async (
+    user: User
+  ): Promise<UserResponseSuccess & ErrorResponse> => {
+    const response = await post<User>("http://localhost:5000/v1/user", user);
+    return response.data;
+  };
+
+  return { signUpService };
 };
+
+export { useSignUpService };
 
 // export const signUpService = (user: User): Promise<string> => {
 //     console.log(user)

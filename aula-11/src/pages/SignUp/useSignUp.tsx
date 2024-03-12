@@ -1,5 +1,5 @@
 import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
-import { signUpService } from "../../services/signUp";
+import { useSignUpService } from "../../services/signUp";
 import { User } from "../../typing";
 import { useNavigate } from "react-router-dom";
 import { PATHS } from "../../routes/paths";
@@ -9,6 +9,7 @@ type UserFD = {
 };
 
 const useSignUp = () => {
+  const { signUpService } = useSignUpService()
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [isFormValid, setIsFormValid] = useState(false);

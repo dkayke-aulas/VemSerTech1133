@@ -1,10 +1,11 @@
 import { FC } from "react";
 import S from "./style.module.css";
 
+type Base64 = string
 interface CardContactProp {
   name: string;
   tel: string;
-  photo?: string;
+  photo?: Base64;
   role?: string;
 }
 
@@ -14,7 +15,7 @@ const CardContact: FC<CardContactProp> = (props) => {
   return (
     <button className={S.cardButton}>
       <div className={S.photoContainer}>
-        <img src={photo} />
+        <img src={`data:image/png;base64,${photo}`} />
       </div>
       <div className={S.dataContainer}>
         <h2>{name}</h2>
