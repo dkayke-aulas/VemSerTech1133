@@ -6,7 +6,6 @@ import { Contact, Login } from "../pages";
 import { SignUp } from "../pages/SignUp";
 import { ContactAdd } from "../pages/ContactAdd";
 
-
 const Router = () => {
   return (
     <BrowserRouter>
@@ -15,6 +14,7 @@ const Router = () => {
         <Route path={PATHS.signUp} element={<SignUp />} />
         <Route path={PATHS.contacts} element={<Contact />} />
         <Route path={PATHS.contactsAdd} element={<ContactAdd />} />
+        <Route path={PATHS.contactsEdit} element={<ContactAdd isEdit />} />
       </Routes>
     </BrowserRouter>
   );

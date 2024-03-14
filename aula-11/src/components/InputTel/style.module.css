@@ -1,0 +1,22 @@
+.inputPasswordContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input {
+    width: 100%;
+    height: 2rem;
+    border-radius: 0.25rem;
+    box-sizing: border-box;
+    border: 2px solid crimson;
+    padding: 0 0.5rem;
+}
+
+.iconPasswordContainer {
+    position: absolute;
+    right: 0.625rem;
+    font-size: 1rem;
+    top: 0.5rem;
+    color: crimson;
+}

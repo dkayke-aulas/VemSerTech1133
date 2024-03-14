@@ -22,13 +22,13 @@ export type Phone = {
   }
 
 export type Contact = {
-  id: "9892b7b3-45d0-4dfa-a8d3-d32e54392b2f";
-  nome: "Amanda";
-  idUsuario: "d5b07480-02dc-423a-a598-4c5564e1b9b7";
-  apelido: "";
-  email: "";
-  notas: "";
-  foto: "data:image/png;base64,abcdefghijklmnopqrstuvwxyz";
+  id?: string;
+  idUsuario?: string;
+  nome: string;
+  apelido: string;
+  email: string;
+  notas: string;
+  foto: string;
   telefones: Phone[];
   endereco: Address;
 };

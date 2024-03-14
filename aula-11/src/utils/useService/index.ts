@@ -14,11 +14,25 @@ const useService = () => {
     body?: Body
   ) => instance.post<Response>(url, body);
 
+  const patch = <Body = Record<string, unknown>, Response = unknown>(
+    url: string,
+    body?: Body
+  ) => instance.patch<Response>(url, body);
+
   const get = <Response = unknown>(url: string) => instance.get<Response>(url);
+
+  const del = <Body = Record<string, unknown>, Response = unknown>(
+    url: string,
+    body?: Body
+  ) => instance.delete<Response>(url, {
+    data: body
+  });
 
   return {
     post,
-    get
+    get,
+    del,
+    patch
   };
 };
 
